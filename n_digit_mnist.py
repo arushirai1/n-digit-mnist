@@ -25,7 +25,7 @@ import struct
 from utils import read_sn3_pascalvincent_tensor
 import numpy as np
 
-
+xrange=range
 class NDigitMnist(object):
   """Construct and write n-digit MNIST into .npz files."""
 
