@@ -22,7 +22,7 @@ import argparse
 import logging
 import os
 import struct
-
+from utils import read_sn3_pascalvincent_tensor
 import numpy as np
 
 
@@ -45,11 +45,8 @@ class NDigitMnist(object):
             'labels': 't10k-labels.idx1-ubyte',
         },
     }[mnist_split]
-
-    with open(os.path.join(self.args.mnist_dir, mnist_map['images'])) as f:
-      images = self._decode_mnist(f, 'images')
-    with open(os.path.join(self.args.mnist_dir, mnist_map['labels'])) as f:
-      labels = self._decode_mnist(f, 'labels')
+    images = read_sn3_pascalvincent_tensor(os.path.join(self.args.mnist_dir, mnist_map['images']))
+    labels = read_sn3_pascalvincent_tensor(os.path.join(self.args.mnist_dir, mnist_map['labels']))
 
     return images, labels
 
