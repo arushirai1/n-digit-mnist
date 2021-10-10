@@ -59,7 +59,7 @@ def main():
     labels = data['labels']
     images = data['images']
 
-  visualize_dir = os.path.join(args.dataset_dir, 'visualization')
+  visualize_dir = os.path.join(dataset_dir, 'visualization')
   if not os.path.exists(visualize_dir):
     os.makedirs(visualize_dir)
 
