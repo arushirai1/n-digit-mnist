@@ -255,7 +255,7 @@ class NDigitMnist(object):
 
   def _save_mnist_to_npz(self, dataset_dir, mnist_split, images, labels):
     path = os.path.join(dataset_dir, '%s.npz' % mnist_split)
-    with open(path, 'w') as f:
+    with open(path, 'wb') as f:
       np.savez(f, images=images, labels=labels)
 
   def load_and_write_mnist(self, mnist_split):
@@ -308,7 +308,7 @@ class NDigitMnist(object):
     with open(os.path.join(self.args.standard_datasets_dir,
                            'dataset_mnist_%d_%s_%s.npz'
                            % (self.args.num_digits,
-                              self.args.domain_gap, mnist_split)), 'w') as f:
+                              self.args.domain_gap, mnist_split)), 'wb') as f:
       np.savez(f, sample_per_number=sample_per_number,
                chosen_numbers=chosen_numbers, image_ids=image_ids)
 
